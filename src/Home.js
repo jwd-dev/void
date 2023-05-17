@@ -42,7 +42,11 @@ const Home = () => {
       </Stack>
       <br />
       <AudioPlayer />
-      {/* {isLoading ? <CircularProgress/> : <AudioRecorder toggleLoading={toggleIsLoad}/>} */}
+      {/* {isLoading ? (
+        <CircularProgress />
+      ) : (
+        <AudioRecorder toggleLoading={toggleIsLoad} />
+      )} */}
     </div>
   );
 };

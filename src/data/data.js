@@ -16,6 +16,8 @@ import shafqat3 from "./shafqat/shafqat_3.wav";
 import shafqat4 from "./shafqat/shafqat_4.wav";
 import shafqat5 from "./shafqat/shafqat_5.wav";
 
+const pre_url = "https://voidbucketdemo.s3.us-east-2.amazonaws.com/";
+
 const audio = [
   aman1,
   aman2,
@@ -34,4 +36,22 @@ const audio = [
   shafqat5,
 ];
 
-export default audio;
+const links = [
+  pre_url + "aman_1.wav",
+  pre_url + "aman_2.wav",
+  pre_url + "aman_3.wav",
+  pre_url + "aman_4.wav",
+  pre_url + "aman_5.wav",
+  pre_url + "jake_1.wav",
+  pre_url + "jake_2.wav",
+  pre_url + "jake_3.wav",
+  pre_url + "jake_4.wav",
+  pre_url + "jake_5.wav",
+  pre_url + "shafqat_1.wav",
+  pre_url + "shafqat_2.wav",
+  pre_url + "shafqat_3.wav",
+  pre_url + "shafqat_4.wav",
+  pre_url + "shafqat_5.wav",
+];
+
+export { audio, links };
