@@ -6,7 +6,7 @@ import {AppBar, Box, CircularProgress, IconButton, Toolbar} from "@mui/material"
 
 
 
-    const sendReport = async (input, setDatFunct) => {
+const sendReport = async (input, setDatFunct) => {
     try {
         const url = 'http://localhost:8000/urlpredict?url=' + input;
         const result = await axios.get(url);
@@ -22,53 +22,54 @@ const fileUploadHandler = async (blob) => {
         return;
     }
 
-    const url = 'https://www.filestackapi.com/api/store/S3?key=AK8zkbmjtQZOOdUHVYnCFz';
+  const url =
+    "https://www.filestackapi.com/api/store/S3?key=AK8zkbmjtQZOOdUHVYnCFz";
 
-    try {
-        const response = await axios({
-            method: 'post',
-            url,
-            data: blob,
-            headers: { 'Content-Type': blob.type }
-        });
+  try {
+    const response = await axios({
+      method: "post",
+      url,
+      data: blob,
+      headers: { "Content-Type": blob.type },
+    });
 
-        await sendReport(response.data.url);
-    } catch (error) {
-        console.error('Error uploading blob:', error);
-    }
+    console.log(response);
+  } catch (error) {
+    console.error("Error uploading blob:", error);
+  }
 };
 
 
 
 function MyAudioFunction(props) {
-    const [bState, setBState] = useState(false);
+  const [bState, setBState] = useState(false);
 
-    let buttonToggle = bState ? 'active' : 'inactive';
+  let buttonToggle = bState ? "active" : "inactive";
 
-    const recordingToggle = () => {
-        setBState(bState => !bState);
-        if (recorderControls.isRecording) {
-            recorderControls.stopRecording();
-        } else {
-            recorderControls.startRecording();
-        }
+  const recordingToggle = () => {
+    setBState((bState) => !bState);
+    if (recorderControls.isRecording) {
+      recorderControls.stopRecording();
+    } else {
+      recorderControls.startRecording();
     }
-    const recorderControls = useAudioRecorder();
-    const addAudioElement = async (blob) => {
-        const url = URL.createObjectURL(blob);
-        const audio = document.createElement('audio');
-        console.log(url);
-        audio.src = url;
-        audio.controls = true;
-        //send blob to aws s3 bucket
-        await fileUploadHandler(blob).then((response) => {
-            props.toggleLoading();
-
-            }
-        ).catch((error) => {
-            console.log(error);
-        });
-    }
+  };
+  const recorderControls = useAudioRecorder();
+  const addAudioElement = async (blob) => {
+    const url = URL.createObjectURL(blob);
+    const audio = document.createElement("audio");
+    console.log(url);
+    audio.src = url;
+    audio.controls = true;
+    //send blob to aws s3 bucket
+    await fileUploadHandler(blob)
+      .then((response) => {
+        props.toggleLoading();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
         return (
             <div style={{
@@ -103,3 +104,5 @@ function MyAudioFunction(props) {
 }
 
 export default MyAudioFunction;
+
+export { sendReport, fileUploadHandler };
