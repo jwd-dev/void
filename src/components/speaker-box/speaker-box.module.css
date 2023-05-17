@@ -1,0 +1,35 @@
+.root {
+  width: 200px;
+  height: 220px;
+  border-radius: 10px;
+  background-color: rgb(0, 0, 0);
+  opacity: 1;
+  display: block;
+  overflow: hidden;
+  box-shadow: #7DFF00  3px 3px 3px;
+}
+
+.rootAuthed {
+  width: 200px;
+  height: 220px;
+  border-radius: 10px;
+  background-color: rgb(34, 126, 13);
+  opacity: 1;
+  display: block;
+  overflow: hidden;
+}
+.profileImage {
+  width: 200px;
+  height: 175px;
+}
+.nameBox {
+  margin: 2% 0% 0;
+  padding: 0px 0 0px 10px;
+  color:white;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.userName {
+  overflow: hidden;
+}
