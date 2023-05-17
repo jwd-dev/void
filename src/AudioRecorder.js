@@ -6,7 +6,7 @@ import {AppBar, Box, CircularProgress, IconButton, Toolbar} from "@mui/material"
 
 
 
-const sendReport = async (input, setDatFunct) => {
+    const sendReport = async (input, setDatFunct) => {
     try {
         const url = 'http://localhost:8000/urlpredict?url=' + input;
         const result = await axios.get(url);
@@ -32,7 +32,7 @@ const fileUploadHandler = async (blob) => {
             headers: { 'Content-Type': blob.type }
         });
 
-        console.log(response);
+        await sendReport(response.data.url);
     } catch (error) {
         console.error('Error uploading blob:', error);
     }
@@ -92,9 +92,11 @@ function MyAudioFunction(props) {
                     }}
                 />
                 <br/>
+                <div class={"area"}>
                 <button onClick={recordingToggle} className={`button${buttonToggle}`}>
-                  <MicIcon/>
+                  <MicIcon id={"transitions"}/>
                 </button>
+                </div>
                 <br/>
             </div>
         )

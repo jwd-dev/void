@@ -2,55 +2,93 @@
 
 /* base styles */
 * {
-  margin: 0;
-  font-family: "Quicksand";
-  color: #333;
+    font-family: "Quicksand";
+    color: #333;
+
 }
+
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+:root {
+    background-color: #000000;
+    background: linear-gradient(215deg, #1f1f1f 29.9%, #000000 80%), linear-gradient(304deg, rgba(49, 45, 44, 0.4) 24.9%, #090707 91%), linear-gradient(10deg, #b1c9d8 19.9%, #2776aa 50%), linear-gradient(145deg, #f4df26 15.9%, #ff1b9a 40%);
+    background-repeat: no-repeat;
+
+
+    background-blend-mode: hard-light;
+}
+
+
 .navbar {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    border-bottom: 1px solid #7DFF00;
 }
+
 .navbar h1 {
-  color: #f1356d;
+    color: #f1356d;
 }
+
 .navbar .links {
-  margin-left: auto;
+    margin-left: auto;
 }
+
 .navbar a {
-  margin-left: 16px;
-  text-decoration: none;
-  padding: 6px;
+    margin-left: 16px;
+    text-decoration: none;
+    padding: 6px;
 }
+
 .navbar a:hover {
-  color: #f1356d;
+    color: #f1356d;
 }
+
 .content {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
 }
+
 .home {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  align-items: "center";
-  justify-content: "center";
-  left: 50%;
-  right: 50%;
-  background: "red";
-  textAlign: "center";
+    max-width: 800px;
+    margin:  1.5em auto;
+    padding: 20px;
+    align-items: "center";
+    justify-content: "center";
+    left: 50%;
+    right: 50%;
+
+    background: "red";
+    textAlign: "center";
 }
 
 .buttonactive {
-  background-color: red;
+    background-color: #57aedd;
+    border: none;
+    border-radius: 30px;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+    box-shadow: rgb(87, 174, 221) 0px 2px 6px, inset rgb(87, 174, 221) 0px -1px 2px;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation-iteration-count: infinite;
+}
 
+
+svg {
+    fill: white !important;
 }
 
 .buttoninactive {
-  background-color: none;
+    background-color: #E81B7D;
+    box-shadow: rgb(175, 22, 95) 0px 2px 3px, inset rgb(175, 22, 95) 0px -1px 2px;
+    border: none;
+    border-radius: 30px;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
 
 }
