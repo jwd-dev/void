@@ -13,7 +13,7 @@ import Item from "@mui/material/Stack";
 import MicIcon from "@mui/icons-material/Mic";
 import { styled } from "@mui/material/styles";
 import Fab from "@mui/material/Fab";
-import AudioPlayer from "./data/AudioPlayer";
+import Void from "./data/void";
 
 // const StyledFab = styled(Fab)({
 //     position: 'absolute',
@@ -25,9 +25,12 @@ import AudioPlayer from "./data/AudioPlayer";
 // });
 const Home = () => {
   const [isRecording, setIsRecording] = useState("false");
-  let aAuthed = false;
-  let bAuthed = false;
-  let cAuthed = false;
+    const [ identity, setIdentity ] = useState(null)
+
+    let aAuthed = (identity==="aman");
+    let bAuthed = (identity==="jake");
+    let cAuthed = (identity==="shafqat");
+
 
     let isLoading = false;
     const toggleIsLoad = () => {
@@ -43,14 +46,11 @@ const Home = () => {
                     {bAuthed?<SpeakerBox authenticated name="Jake Downie" image={"1655911424362.jpeg"} />:<SpeakerBox name="Jake Downie" image={"1655911424362.jpeg "}/>}
                 </Item>
                 <Item>
-                    {cAuthed?<SpeakerBox authenticated  name="Jake Downie" image={"img_1.png"} />:<SpeakerBox name="Jake Downie" image={"img_1.png"}/>}
+                    {cAuthed?<SpeakerBox authenticated  name="Shafqat Ahmed" image={"img_2.png"} />:<SpeakerBox name="Shafqat Ahmed" image={"img_2.png"}/>}
                 </Item>
             </Stack>
             <br/>
-            <AudioPlayer />
-
-            {isLoading ? <CircularProgress/> : <AudioRecorder toggleLoading={toggleIsLoad}/>}
-
+            <Void callback={identity} callbackFunc={setIdentity}/>
         </div>
 
     );

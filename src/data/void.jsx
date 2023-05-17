@@ -19,16 +19,23 @@ const sendReport = async (input) => {
     }
   };
 
-export default function AudioPlayer(props) {
+export default function Void(props) {
     const [ isClicked, setClick ] = useState(false);
     const [ fileNumber, setFileNumber ] = useState(0);
-    const [ identity, setIdentity ] = useState(null)
+    const [counter, setCounter] = useState(0);
+
 
     const onButtonClick = () => {
         if (isClicked == false) {
             setClick(true)
         }
-        let newIndex = Math.floor(Math.random() * 10) + 1;
+        let newIndex = counter ;
+        setCounter(counter + 1);
+        if(counter === 3){
+            setCounter(0);
+        }
+        props.callbackFunc("Loading...")
+        console.log(newIndex);
         setFileNumber(newIndex)
     }
 
@@ -39,29 +46,25 @@ export default function AudioPlayer(props) {
         axios.get(url)
             .then(res => {
                 const {data} = res.data
-                setIdentity(data.prediction_label)
+                props.callbackFunc(data.prediction_label)
+                setClick(false);
             })
             .catch(err => console.log(err))
     }
     
     return (
-        <div style={{ alignContent: 'center'}}>
-
-            <Button onClick={onButtonClick} variant="contained">Generate Audio</Button>
-            <br />
-            <br />
+        <div style={{ alignContent: 'center', display:"flex", gap:15 }}>
+            {!isClicked &&
+                <Button onClick={onButtonClick} variant="contained">Generate Audio</Button>
+            }
             {isClicked &&
-                <div>
+                <div >
                     <audio
                         id="audio"
-                        controls
+                        controls={true}
                         src={audio[fileNumber]}
                     />
-                        <br />
-                        <br />
-
-                    <Button onClick={onShip} color="success" variant="contained">🚢 Ship it</Button>
-                    <p>{identity}</p>
+                    <Button onClick={onShip} color="success" variant="contained">🚢 Identify</Button>
                 </div>
             }
         </div>

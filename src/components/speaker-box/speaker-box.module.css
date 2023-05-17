@@ -13,13 +13,15 @@
   width: 200px;
   height: 220px;
   border-radius: 10px;
-  background-color: rgb(34, 126, 13);
+  background-color: #7DFF00;
   opacity: 1;
   display: block;
   overflow: hidden;
+  box-shadow: #7DFF00  3px 3px 3px;
 }
+
 .profileImage {
-  width: 200px;
+  width: 100%;
   height: 175px;
 }
 .nameBox {
