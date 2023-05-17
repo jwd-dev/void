@@ -1,7 +1,9 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { AudioRecorder, useAudioRecorder } from 'react-audio-voice-recorder';
 import axios from 'axios';
 import MicIcon from '@mui/icons-material/Mic';
+import {AppBar, Box, CircularProgress, IconButton, Toolbar} from "@mui/material";
+
 
 
 const sendReport = async (input, setDatFunct) => {
@@ -37,8 +39,14 @@ const fileUploadHandler = async (blob) => {
 };
 
 
+
 function MyAudioFunction(props) {
+    const [bState, setBState] = useState(false);
+
+    let buttonToggle = bState ? 'active' : 'inactive';
+
     const recordingToggle = () => {
+        setBState(bState => !bState);
         if (recorderControls.isRecording) {
             recorderControls.stopRecording();
         } else {
@@ -63,7 +71,14 @@ function MyAudioFunction(props) {
     }
 
         return (
-            <div>
+            <div style={{
+              position: 'relative',
+              // border: '3px solid green',
+              margin: '0',
+              position: 'absolute',
+              top: '80%',
+              left: '50%',      
+            }}>
                 <AudioRecorder
                     onRecordingComplete={(blob) => addAudioElement(blob)}
                     recorderControls={recorderControls}
@@ -77,7 +92,9 @@ function MyAudioFunction(props) {
                     }}
                 />
                 <br/>
-                <button onClick={recordingToggle}><MicIcon/></button>
+                <button onClick={recordingToggle} className={`button${buttonToggle}`}>
+                  <MicIcon/>
+                </button>
                 <br/>
             </div>
         )

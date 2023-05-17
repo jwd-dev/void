@@ -9,16 +9,16 @@ import {styled} from '@mui/material/styles';
 import Fab from '@mui/material/Fab';
 
 
-const StyledFab = styled(Fab)({
-    position: 'absolute',
-    zIndex: 1,
-    top: -30,
-    left: 0,
-    right: 0,
-    margin: '0 auto',
-});
+// const StyledFab = styled(Fab)({
+//     position: 'absolute',
+//     zIndex: 1,
+//     top: -30,
+//     left: 0,
+//     right: 0,
+//     margin: '0 auto',
+// });
 const Home = () => {
-    const [name, setName] = useState('mario');
+    const [isRecording, setIsRecording] = useState('false');
     let aAuthed = false;
     let bAuthed = false;
     let cAuthed = false;
@@ -28,9 +28,8 @@ const Home = () => {
         isLoading = !isLoading;
     }
     return (
-        <div>
-            <h1>VoID</h1>
-            <Stack direction="row" spacing={2} marginLeft={40}>
+        <div className='home'>
+            <Stack direction="row" spacing={2}>
                 <Item>
                     {aAuthed?<SpeakerBox authed/>:<SpeakerBox/>}
                 </Item>
@@ -43,6 +42,7 @@ const Home = () => {
             </Stack>
             <br/>
             {isLoading ? <CircularProgress/> : <AudioRecorder toggleLoading={toggleIsLoad}/>}
+
         </div>
 
     );
