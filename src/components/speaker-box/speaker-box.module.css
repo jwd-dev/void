@@ -1,0 +1,32 @@
+.root {
+  width: 200px;
+  height: 220px;
+  border-radius: 10px;
+  background-color: rgba(150, 150, 150, 0.8);
+  opacity: 1;
+  display: block;
+  overflow: hidden;
+}
+
+.rootAuthed {
+  width: 200px;
+  height: 220px;
+  border-radius: 10px;
+  background-color: rgb(34, 126, 13);
+  opacity: 1;
+  display: block;
+  overflow: hidden;
+}
+.profileImage {
+  width: 200px;
+  height: 175px;
+}
+.nameBox {
+  margin: 2% 0% 0;
+  padding: 0px 0 0px 10px;
+  color:black;
+}
+
+.userName {
+  overflow: hidden;
+}

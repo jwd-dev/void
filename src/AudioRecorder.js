@@ -1,12 +1,10 @@
-import { S3Client } from "@aws-sdk/client-s3";
-import { PutObjectCommand } from "@aws-sdk/client-s3";
 import * as React from 'react';
 import { AudioRecorder, useAudioRecorder } from 'react-audio-voice-recorder';
 import axios from 'axios';
 import MicIcon from '@mui/icons-material/Mic';
 
 
-const fetchData = async (input, setDatFunct) => {
+const sendReport = async (input, setDatFunct) => {
     try {
         const url = 'http://localhost:8000/urlpredict?url=' + input;
         const result = await axios.get(url);
