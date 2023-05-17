@@ -31,13 +31,13 @@ const Home = () => {
         <div className='home'>
             <Stack direction="row" spacing={2}>
                 <Item>
-                    {aAuthed?<SpeakerBox authed/>:<SpeakerBox/>}
+                    {aAuthed?<SpeakerBox  authenticated name="Aman Ibrahim" image={"img_1.png"}/>:<SpeakerBox  name="Aman Ibrahim" image={"img_1.png"}/>}
                 </Item>
                 <Item>
-                    {bAuthed?<SpeakerBox authed/>:<SpeakerBox/>}
+                    {bAuthed?<SpeakerBox authenticated name="Jake Downie" image={"1655911424362.jpeg"} />:<SpeakerBox name="Jake Downie" image={"1655911424362.jpeg "}/>}
                 </Item>
                 <Item>
-                    {cAuthed?<SpeakerBox authed/>:<SpeakerBox/>}
+                    {cAuthed?<SpeakerBox authenticated  name="Jake Downie" image={"img_1.png"} />:<SpeakerBox name="Jake Downie" image={"img_1.png"}/>}
                 </Item>
             </Stack>
             <br/>
